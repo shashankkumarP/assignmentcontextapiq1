@@ -4,14 +4,9 @@ import { AuthContext } from '../context/AuthContext'
 import { Login } from './Login'
 import { Logout } from './Logout'
 export const Navbar = () => {
-    let {isAuth,login,logout} = useContext(AuthContext);
+    let {isAuth,toggleAuth} = useContext(AuthContext);
     let handleclick = (e)=>{
-        if(isAuth){
-            logout();
-        }
-        else{
-            login();
-        }
+        toggleAuth();
     }
   return (
     <div>Navbar

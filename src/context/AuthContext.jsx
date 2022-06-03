@@ -6,11 +6,11 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({children})=>{
     let [isAuth,setIsAuth] = useState(false);
-    let login = ()=>{
-        setIsAuth(true);
+    let toggleAuth = ()=>{
+        if(isAuth) setIsAuth(false);
+        else setIsAuth(true);
+      
     }
-    let logout = ()=>{
-        setIsAuth(false);
-    }
-    return <AuthContext.Provider value={{isAuth,login,logout}}>{children}</AuthContext.Provider>
+    
+    return <AuthContext.Provider value={{isAuth,toggleAuth}}>{children}</AuthContext.Provider>
 }
